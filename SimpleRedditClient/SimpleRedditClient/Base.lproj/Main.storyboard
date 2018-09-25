@@ -17,9 +17,37 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KSe-wl-GEp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="607"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sn1-EU-UH5">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="t33-SV-2bx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KSe-wl-GEp" secondAttribute="bottom" priority="750" id="3S2-0Q-U7p"/>
+                            <constraint firstItem="Sn1-EU-UH5" firstAttribute="top" secondItem="KSe-wl-GEp" secondAttribute="bottom" id="ApZ-Ej-Cgx"/>
+                            <constraint firstItem="Sn1-EU-UH5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kft-kJ-vtC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Sn1-EU-UH5" secondAttribute="bottom" id="WwP-Rl-Ioi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sn1-EU-UH5" secondAttribute="trailing" id="g1t-wK-Hlm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KSe-wl-GEp" secondAttribute="trailing" id="jiE-Mh-XAQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="KSe-wl-GEp" secondAttribute="top" id="oso-hR-y2b"/>
+                            <constraint firstItem="KSe-wl-GEp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pFB-sT-uxU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="contentTableView" destination="KSe-wl-GEp" id="xHh-yU-fS2"/>
+                        <outlet property="newContentNotificationView" destination="Sn1-EU-UH5" id="b3j-gm-08t"/>
+                        <outlet property="showNotificationConstraint" destination="t33-SV-2bx" id="lwB-UO-Scd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

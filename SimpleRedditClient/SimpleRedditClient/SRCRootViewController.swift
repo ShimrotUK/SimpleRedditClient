@@ -10,9 +10,14 @@ import UIKit
 
 class SRCRootViewController: UIViewController {
 
+    @IBOutlet private weak var contentTableView: UITableView!
+    @IBOutlet private weak var newContentNotificationView: UIView!
+    @IBOutlet private var showNotificationConstraint: NSLayoutConstraint!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        
     }
 
     override func didReceiveMemoryWarning() {
