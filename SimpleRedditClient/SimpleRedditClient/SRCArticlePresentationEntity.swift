@@ -8,9 +8,9 @@
 
 import UIKit
 
-struct SRCArticleEntity {
+struct SRCArticlePresentationEntity {
 
-    typealias SRCThumbnailGetterClosure = ((_ imageDeliveryClosure: (_ image: UIImage, _ articleEntityID: String) -> Void) -> Void)
+    typealias SRCThumbnailGetterClosure = ((_ imageDeliveryClosure: @escaping (_ image: UIImage?, _ articleEntityID: String) -> Void) -> Void)
 
     let ID : String
     let title : String
@@ -20,7 +20,7 @@ struct SRCArticleEntity {
     let thumbnailGetterClosure : SRCThumbnailGetterClosure?
     let additionalImage : URL?
 
-    init(_ ID:String, title: String, author: String, date: String, thumbnailGetterClosure: SRCThumbnailGetterClosure?, numberOfComments:String, additionalImage: URL?)
+    init(with ID:String, title: String, author: String, date: String, thumbnailGetterClosure: SRCThumbnailGetterClosure?, numberOfComments:String, additionalImage: URL?)
     {
         self.ID = ID
         self.title = title

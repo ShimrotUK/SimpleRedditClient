@@ -12,6 +12,7 @@ class SRCDataProvider
 {
     typealias SRCObservingChangesClosure = ((SRCDataProvider) -> Void)
 
+    private let articlesPerPage = 25
     private var observingChangesClosures = [UUID:SRCObservingChangesClosure]()
     private var requestController : SRCRedditRequestController
     private var dataTranformer : SRCResponseDataTransformer
@@ -28,6 +29,7 @@ class SRCDataProvider
     }
 
     private(set) var state : ProviderState = .ready
+    private(set) var currnetPage = 1
 
     init(_ requestController: SRCRedditRequestController, dataTranformer: SRCResponseDataTransformer)
     {
@@ -50,7 +52,26 @@ class SRCDataProvider
 
     func requestFirst()
     {
-        self.request(count: 25, beforeID: nil, afterID: nil)
+        self.currnetPage = 1
+        self.request(count: articlesPerPage * self.currnetPage, beforeID: nil, afterID: nil)
+    }
+
+    func requestNext()
+    {
+        if let theArticles = self.articles, theArticles.count > 0
+        {
+            self.currnetPage += 1
+            self.request(count: articlesPerPage * self.currnetPage, beforeID: nil, afterID: theArticles.last?.name)
+        }
+    }
+
+    func requestPrevious()
+    {
+        if let theArticles = self.articles, theArticles.count > 0 && self.currnetPage > 1
+        {
+            self.currnetPage -= 1
+            self.request(count: articlesPerPage * self.currnetPage, beforeID: theArticles.first?.name, afterID: nil)
+        }
     }
 
     private func request(count:Int, beforeID: String?, afterID: String?)
@@ -91,7 +112,9 @@ class SRCDataProvider
 
                     for closure in self.observingChangesClosures.values
                     {
-                        closure(self)
+                        OperationQueue.main.addOperation {
+                            closure(self)
+                        }
                     }
                 }
         }

@@ -18,9 +18,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KSe-wl-GEp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KSe-wl-GEp">
                                 <rect key="frame" x="0.0" y="20" width="375" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SRCArticleTableViewCell" id="6Zt-xl-n1T" customClass="SRCArticleTableViewCell" customModule="SimpleRedditClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="104"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Zt-xl-n1T" id="Kz4-5a-yUd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vps-Gk-AwW">
+                                                    <rect key="frame" x="5" y="5" width="40" height="40.5"/>
+                                                    <gestureRecognizers/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="faW-Mm-1ty"/>
+                                                        <constraint firstAttribute="height" constant="40" id="fqf-JB-Cff"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6O-T5-qer" userLabel="title">
+                                                    <rect key="frame" x="55" y="5" width="310" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ian-Qt-5sv" userLabel="author">
+                                                    <rect key="frame" x="55" y="31.5" width="310" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve5-8f-9xI" userLabel="commentsCount">
+                                                    <rect key="frame" x="55" y="75.5" width="310" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmD-QX-3uk" userLabel="date">
+                                                    <rect key="frame" x="55" y="53.5" width="310" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ian-Qt-5sv" secondAttribute="trailing" constant="10" id="2n4-I2-5qp"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ve5-8f-9xI" secondAttribute="bottom" constant="5" id="Cea-Z3-muQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="YmD-QX-3uk" secondAttribute="trailing" constant="10" id="CpX-iV-NZ0"/>
+                                                <constraint firstAttribute="trailing" secondItem="h6O-T5-qer" secondAttribute="trailing" constant="10" id="CqO-7y-jJr"/>
+                                                <constraint firstItem="YmD-QX-3uk" firstAttribute="leading" secondItem="Vps-Gk-AwW" secondAttribute="trailing" constant="10" id="HKg-CY-a96"/>
+                                                <constraint firstItem="ian-Qt-5sv" firstAttribute="top" secondItem="h6O-T5-qer" secondAttribute="bottom" constant="5" id="JNn-VM-F1l"/>
+                                                <constraint firstItem="Vps-Gk-AwW" firstAttribute="top" secondItem="Kz4-5a-yUd" secondAttribute="top" constant="5" id="Jzs-9z-AEM"/>
+                                                <constraint firstItem="Ve5-8f-9xI" firstAttribute="top" secondItem="YmD-QX-3uk" secondAttribute="bottom" constant="5" id="Lwv-W4-hW2"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Vps-Gk-AwW" secondAttribute="bottom" constant="5" id="MeA-8F-k7W"/>
+                                                <constraint firstItem="ian-Qt-5sv" firstAttribute="leading" secondItem="Vps-Gk-AwW" secondAttribute="trailing" constant="10" id="QSr-pO-caH"/>
+                                                <constraint firstItem="Vps-Gk-AwW" firstAttribute="leading" secondItem="Kz4-5a-yUd" secondAttribute="leading" constant="5" id="UHU-N5-FUB"/>
+                                                <constraint firstItem="Ve5-8f-9xI" firstAttribute="leading" secondItem="Vps-Gk-AwW" secondAttribute="trailing" constant="10" id="ZUK-h1-mF9"/>
+                                                <constraint firstItem="h6O-T5-qer" firstAttribute="top" secondItem="Kz4-5a-yUd" secondAttribute="top" constant="5" id="cmR-Mw-CaH"/>
+                                                <constraint firstItem="h6O-T5-qer" firstAttribute="leading" secondItem="Vps-Gk-AwW" secondAttribute="trailing" constant="10" id="me0-0X-WqL"/>
+                                                <constraint firstItem="YmD-QX-3uk" firstAttribute="top" secondItem="ian-Qt-5sv" secondAttribute="bottom" constant="5" id="oNb-AI-JBk"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ve5-8f-9xI" secondAttribute="trailing" constant="10" id="z2j-vJ-kb4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="ian-Qt-5sv" id="9k3-rc-CFr"/>
+                                            <outlet property="commentsCountLabel" destination="Ve5-8f-9xI" id="k3x-jH-9gh"/>
+                                            <outlet property="dateLabel" destination="YmD-QX-3uk" id="238-i0-7Xl"/>
+                                            <outlet property="thumbnailImageView" destination="Vps-Gk-AwW" id="7AC-ou-HTG"/>
+                                            <outlet property="titleLabel" destination="h6O-T5-qer" id="vvd-d2-P8C"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="7Qd-p5-5P4" appends="YES" id="pGh-6K-5EG"/>
+                                    <outletCollection property="gestureRecognizers" destination="mF9-wX-XTR" appends="YES" id="bea-PL-UnL"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sn1-EU-UH5">
                                 <rect key="frame" x="0.0" y="627" width="375" height="40"/>
@@ -59,6 +133,16 @@
                         <action selector="newContentViewTapped:" destination="BYZ-38-t0r" id="EXG-Qr-Lpf"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="7Qd-p5-5P4">
+                    <connections>
+                        <action selector="contentViewSwapedLeft:" destination="BYZ-38-t0r" id="PGB-Ga-xjS"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="mF9-wX-XTR">
+                    <connections>
+                        <action selector="contentViewSwapedRight:" destination="BYZ-38-t0r" id="tvv-w3-bcH"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
         </scene>
     </scenes>

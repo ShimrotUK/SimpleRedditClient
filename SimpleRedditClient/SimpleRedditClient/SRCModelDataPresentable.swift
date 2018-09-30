@@ -10,5 +10,5 @@ import Foundation
 
 protocol SRCModelDataPresentable
 {
-    var currentEntities : [SRCArticleEntity] {get}
+    var currentEntities : [SRCArticlePresentationEntity] {get}
 }

@@ -11,15 +11,18 @@
 		7EE3F517215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F516215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift */; };
 		7EE3F518215FE10A00AC04FF /* SRCResponseDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F514215E802800AC04FF /* SRCResponseDataTransformer.swift */; };
 		7EE3F51A215FEFCC00AC04FF /* SRCRedditRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F519215FEFCC00AC04FF /* SRCRedditRequestController.swift */; };
+		7EE3F51C2160E55200AC04FF /* SRCRedditThumbnailRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F51B2160E55200AC04FF /* SRCRedditThumbnailRequestController.swift */; };
+		7EE3F51E216103D000AC04FF /* SRCContentTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F51D216103D000AC04FF /* SRCContentTableViewDataSource.swift */; };
+		7EE3F520216105B100AC04FF /* SRCArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F51F216105B100AC04FF /* SRCArticleTableViewCell.swift */; };
 		7EF3EC98215A41680076DDA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3EC97215A41680076DDA8 /* AppDelegate.swift */; };
 		7EF3EC9A215A41680076DDA8 /* SRCRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3EC99215A41680076DDA8 /* SRCRootViewController.swift */; };
 		7EF3EC9D215A41680076DDA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF3EC9B215A41680076DDA8 /* Main.storyboard */; };
 		7EF3EC9F215A41690076DDA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EF3EC9E215A41690076DDA8 /* Assets.xcassets */; };
 		7EF3ECA2215A41690076DDA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF3ECA0215A41690076DDA8 /* LaunchScreen.storyboard */; };
 		7EF3ECAD215A41690076DDA8 /* SimpleRedditClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3ECAC215A41690076DDA8 /* SimpleRedditClientTests.swift */; };
-		7EF3ECC2215A799A0076DDA8 /* SRCArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3ECC1215A799A0076DDA8 /* SRCArticleEntity.swift */; };
-		7EF3ECC4215A7D4C0076DDA8 /* SRCArticleEntityStructureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3ECC3215A7D4C0076DDA8 /* SRCArticleEntityStructureTest.swift */; };
-		7EF3ECC6215A7E990076DDA8 /* SRCArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3ECC1215A799A0076DDA8 /* SRCArticleEntity.swift */; };
+		7EF3ECC2215A799A0076DDA8 /* SRCArticlePresentationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3ECC1215A799A0076DDA8 /* SRCArticlePresentationEntity.swift */; };
+		7EF3ECC4215A7D4C0076DDA8 /* SRCArticlePresentationEntityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3ECC3215A7D4C0076DDA8 /* SRCArticlePresentationEntityTest.swift */; };
+		7EF3ECC6215A7E990076DDA8 /* SRCArticlePresentationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3ECC1215A799A0076DDA8 /* SRCArticlePresentationEntity.swift */; };
 		7EF3ECC8215A83C40076DDA8 /* SRCModelDataPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3ECC7215A83C40076DDA8 /* SRCModelDataPresentable.swift */; };
 		7EF3ECCA215A9CD70076DDA8 /* SRCModelDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3ECC9215A9CD70076DDA8 /* SRCModelDataPresenter.swift */; };
 		7EF3ECCC215BE1690076DDA8 /* SRCDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3ECCB215BE1690076DDA8 /* SRCDataProvider.swift */; };
@@ -39,6 +42,9 @@
 		7EE3F514215E802800AC04FF /* SRCResponseDataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCResponseDataTransformer.swift; sourceTree = "<group>"; };
 		7EE3F516215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCResponseDataTransformerTest.swift; sourceTree = "<group>"; };
 		7EE3F519215FEFCC00AC04FF /* SRCRedditRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCRedditRequestController.swift; sourceTree = "<group>"; };
+		7EE3F51B2160E55200AC04FF /* SRCRedditThumbnailRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCRedditThumbnailRequestController.swift; sourceTree = "<group>"; };
+		7EE3F51D216103D000AC04FF /* SRCContentTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCContentTableViewDataSource.swift; sourceTree = "<group>"; };
+		7EE3F51F216105B100AC04FF /* SRCArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCArticleTableViewCell.swift; sourceTree = "<group>"; };
 		7EF3EC94215A41680076DDA8 /* SimpleRedditClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRedditClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF3EC97215A41680076DDA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EF3EC99215A41680076DDA8 /* SRCRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCRootViewController.swift; sourceTree = "<group>"; };
@@ -49,8 +55,8 @@
 		7EF3ECA8215A41690076DDA8 /* SimpleRedditClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleRedditClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF3ECAC215A41690076DDA8 /* SimpleRedditClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRedditClientTests.swift; sourceTree = "<group>"; };
 		7EF3ECAE215A41690076DDA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7EF3ECC1215A799A0076DDA8 /* SRCArticleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCArticleEntity.swift; sourceTree = "<group>"; };
-		7EF3ECC3215A7D4C0076DDA8 /* SRCArticleEntityStructureTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCArticleEntityStructureTest.swift; sourceTree = "<group>"; };
+		7EF3ECC1215A799A0076DDA8 /* SRCArticlePresentationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCArticlePresentationEntity.swift; sourceTree = "<group>"; };
+		7EF3ECC3215A7D4C0076DDA8 /* SRCArticlePresentationEntityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCArticlePresentationEntityTest.swift; sourceTree = "<group>"; };
 		7EF3ECC7215A83C40076DDA8 /* SRCModelDataPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCModelDataPresentable.swift; sourceTree = "<group>"; };
 		7EF3ECC9215A9CD70076DDA8 /* SRCModelDataPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCModelDataPresenter.swift; sourceTree = "<group>"; };
 		7EF3ECCB215BE1690076DDA8 /* SRCDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCDataProvider.swift; sourceTree = "<group>"; };
@@ -101,12 +107,15 @@
 				7EF3EC9E215A41690076DDA8 /* Assets.xcassets */,
 				7EF3ECA0215A41690076DDA8 /* LaunchScreen.storyboard */,
 				7EF3ECA3215A41690076DDA8 /* Info.plist */,
-				7EF3ECC1215A799A0076DDA8 /* SRCArticleEntity.swift */,
+				7EF3ECC1215A799A0076DDA8 /* SRCArticlePresentationEntity.swift */,
 				7EF3ECC7215A83C40076DDA8 /* SRCModelDataPresentable.swift */,
 				7EF3ECC9215A9CD70076DDA8 /* SRCModelDataPresenter.swift */,
 				7EF3ECCB215BE1690076DDA8 /* SRCDataProvider.swift */,
 				7EE3F514215E802800AC04FF /* SRCResponseDataTransformer.swift */,
 				7EE3F519215FEFCC00AC04FF /* SRCRedditRequestController.swift */,
+				7EE3F51B2160E55200AC04FF /* SRCRedditThumbnailRequestController.swift */,
+				7EE3F51D216103D000AC04FF /* SRCContentTableViewDataSource.swift */,
+				7EE3F51F216105B100AC04FF /* SRCArticleTableViewCell.swift */,
 			);
 			path = SimpleRedditClient;
 			sourceTree = "<group>";
@@ -116,7 +125,7 @@
 			children = (
 				7EF3ECAC215A41690076DDA8 /* SimpleRedditClientTests.swift */,
 				7EF3ECAE215A41690076DDA8 /* Info.plist */,
-				7EF3ECC3215A7D4C0076DDA8 /* SRCArticleEntityStructureTest.swift */,
+				7EF3ECC3215A7D4C0076DDA8 /* SRCArticlePresentationEntityTest.swift */,
 				7EE3F516215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift */,
 			);
 			path = SimpleRedditClientTests;
@@ -224,12 +233,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EE3F51A215FEFCC00AC04FF /* SRCRedditRequestController.swift in Sources */,
+				7EE3F51C2160E55200AC04FF /* SRCRedditThumbnailRequestController.swift in Sources */,
 				7EF3ECCA215A9CD70076DDA8 /* SRCModelDataPresenter.swift in Sources */,
+				7EE3F520216105B100AC04FF /* SRCArticleTableViewCell.swift in Sources */,
 				7EF3ECC8215A83C40076DDA8 /* SRCModelDataPresentable.swift in Sources */,
 				7EF3EC9A215A41680076DDA8 /* SRCRootViewController.swift in Sources */,
 				7EF3ECCC215BE1690076DDA8 /* SRCDataProvider.swift in Sources */,
 				7EE3F515215E802800AC04FF /* SRCResponseDataTransformer.swift in Sources */,
-				7EF3ECC2215A799A0076DDA8 /* SRCArticleEntity.swift in Sources */,
+				7EE3F51E216103D000AC04FF /* SRCContentTableViewDataSource.swift in Sources */,
+				7EF3ECC2215A799A0076DDA8 /* SRCArticlePresentationEntity.swift in Sources */,
 				7EF3EC98215A41680076DDA8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,9 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EF3ECC4215A7D4C0076DDA8 /* SRCArticleEntityStructureTest.swift in Sources */,
+				7EF3ECC4215A7D4C0076DDA8 /* SRCArticlePresentationEntityTest.swift in Sources */,
 				7EE3F518215FE10A00AC04FF /* SRCResponseDataTransformer.swift in Sources */,
-				7EF3ECC6215A7E990076DDA8 /* SRCArticleEntity.swift in Sources */,
+				7EF3ECC6215A7E990076DDA8 /* SRCArticlePresentationEntity.swift in Sources */,
 				7EF3ECAD215A41690076DDA8 /* SimpleRedditClientTests.swift in Sources */,
 				7EE3F517215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift in Sources */,
 			);
