@@ -24,7 +24,7 @@ class SRCArticleTableViewCell: UITableViewCell
     override func awakeFromNib() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.thumbnailTapped(_:)))
 
-        self.addGestureRecognizer(gestureRecognizer)
+        self.thumbnailImageView.addGestureRecognizer(gestureRecognizer)
     }
 
     @IBAction func thumbnailTapped(_ gestureRecognizer: UITapGestureRecognizer)

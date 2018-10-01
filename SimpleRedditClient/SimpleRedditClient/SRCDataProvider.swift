@@ -18,7 +18,12 @@ class SRCDataProvider
     private var dataTranformer : SRCResponseDataTransformer
 
     private(set) var error : Error? = nil
-    private(set) var articles : [SRCRedditArticleEntity]?
+    private(set) var restorableData = RestorableData()
+
+    struct RestorableData : Codable {
+        var articles = [SRCRedditArticleEntity]()
+        var currnetPage = 1
+    }
 
     enum ProviderState
     {
@@ -29,12 +34,24 @@ class SRCDataProvider
     }
 
     private(set) var state : ProviderState = .ready
-    private(set) var currnetPage = 1
 
-    init(_ requestController: SRCRedditRequestController, dataTranformer: SRCResponseDataTransformer)
+
+    convenience init(_ requestController: SRCRedditRequestController, dataTranformer: SRCResponseDataTransformer)
+    {
+        self.init(requestController, dataTranformer: dataTranformer, restorableData: nil)
+        self.requestController = requestController
+        self.dataTranformer = dataTranformer
+    }
+
+    init(_ requestController: SRCRedditRequestController, dataTranformer: SRCResponseDataTransformer, restorableData: RestorableData?)
     {
         self.requestController = requestController
         self.dataTranformer = dataTranformer
+
+        if let theRestorableData = restorableData
+        {
+            self.restorableData = theRestorableData
+        }
     }
 
     deinit {
@@ -46,6 +63,23 @@ class SRCDataProvider
         let closureID = UUID()
         self.observingChangesClosures[closureID] = closure
 
+        switch self.state
+        {
+            case .failWithError, .ready:
+                if self.restorableData.articles.count > 0
+                {
+                    DispatchQueue.main.async {
+                        self.observingChangesClosures[closureID]!(self)
+                    }
+                }
+                else
+                {
+                    self.requestFirst()
+                }
+            default:
+                break
+        }
+
         return closureID
     }
 
@@ -56,25 +90,25 @@ class SRCDataProvider
 
     func requestFirst()
     {
-        self.currnetPage = 1
-        self.request(count: articlesPerPage * self.currnetPage, beforeID: nil, afterID: nil)
+        self.restorableData.currnetPage = 1
+        self.request(count: articlesPerPage * self.restorableData.currnetPage, beforeID: nil, afterID: nil)
     }
 
     func requestNext()
     {
-        if let theArticles = self.articles, theArticles.count > 0
+        if self.restorableData.articles.count > 0
         {
-            self.currnetPage += 1
-            self.request(count: articlesPerPage * self.currnetPage, beforeID: nil, afterID: theArticles.last?.name)
+            self.restorableData.currnetPage += 1
+            self.request(count: articlesPerPage * self.restorableData.currnetPage, beforeID: nil, afterID: self.restorableData.articles.last?.name)
         }
     }
 
     func requestPrevious()
     {
-        if let theArticles = self.articles, theArticles.count > 0 && self.currnetPage > 1
+        if self.restorableData.articles.count > 0 && self.restorableData.currnetPage > 1
         {
-            self.currnetPage -= 1
-            self.request(count: articlesPerPage * self.currnetPage, beforeID: theArticles.first?.name, afterID: nil)
+            self.restorableData.currnetPage -= 1
+            self.request(count: articlesPerPage * self.restorableData.currnetPage, beforeID: self.restorableData.articles.first?.name, afterID: nil)
         }
     }
 
@@ -104,7 +138,7 @@ class SRCDataProvider
                     {
                         self.state = .decodingJSON
                         do {
-                            self.articles = try self.dataTranformer.transform(JSONData: dataResult!)
+                            self.restorableData.articles = try self.dataTranformer.transform(JSONData: dataResult!)
                             self.state = .ready
                         }
                         catch

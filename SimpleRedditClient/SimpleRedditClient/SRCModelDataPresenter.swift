@@ -41,7 +41,8 @@ class SRCModelDataPresenter
                         imageDeliveryClosure(image, articleEntity.name)
                     }
                 })
-            } : nil
+                }
+                : nil
             let currentEntity = SRCArticlePresentationEntity(with:articleEntity.name, title: articleEntity.title, author: articleEntity.author, date: date,
                                                  thumbnailGetterClosure: thumbnailGetterClosure, numberOfComments: numberOfComments, additionalImage: articleEntity.additionalPicture?.images.first?.source.url)
             self.currentArticleEntities.append(currentEntity)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E53FCFD21617F7100E10448 /* SRCNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E53FCFC21617F7100E10448 /* SRCNotificationView.swift */; };
+		7E53FCFF2162672F00E10448 /* SRCShowFullSizeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E53FCFE2162672F00E10448 /* SRCShowFullSizeImageViewController.swift */; };
 		7EE3F515215E802800AC04FF /* SRCResponseDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F514215E802800AC04FF /* SRCResponseDataTransformer.swift */; };
 		7EE3F517215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F516215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift */; };
 		7EE3F518215FE10A00AC04FF /* SRCResponseDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F514215E802800AC04FF /* SRCResponseDataTransformer.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		7E53FCFC21617F7100E10448 /* SRCNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCNotificationView.swift; sourceTree = "<group>"; };
+		7E53FCFE2162672F00E10448 /* SRCShowFullSizeImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCShowFullSizeImageViewController.swift; sourceTree = "<group>"; };
 		7EE3F514215E802800AC04FF /* SRCResponseDataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCResponseDataTransformer.swift; sourceTree = "<group>"; };
 		7EE3F516215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCResponseDataTransformerTest.swift; sourceTree = "<group>"; };
 		7EE3F519215FEFCC00AC04FF /* SRCRedditRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCRedditRequestController.swift; sourceTree = "<group>"; };
@@ -104,10 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				7EF3EC97215A41680076DDA8 /* AppDelegate.swift */,
-				7EF3EC99215A41680076DDA8 /* SRCRootViewController.swift */,
 				7EF3EC9B215A41680076DDA8 /* Main.storyboard */,
 				7EF3EC9E215A41690076DDA8 /* Assets.xcassets */,
 				7EF3ECA0215A41690076DDA8 /* LaunchScreen.storyboard */,
+				7EF3EC99215A41680076DDA8 /* SRCRootViewController.swift */,
 				7EF3ECA3215A41690076DDA8 /* Info.plist */,
 				7EF3ECC1215A799A0076DDA8 /* SRCArticlePresentationEntity.swift */,
 				7EF3ECC7215A83C40076DDA8 /* SRCModelDataPresentable.swift */,
@@ -119,6 +121,7 @@
 				7EE3F51D216103D000AC04FF /* SRCContentTableViewDataSource.swift */,
 				7EE3F51F216105B100AC04FF /* SRCArticleTableViewCell.swift */,
 				7E53FCFC21617F7100E10448 /* SRCNotificationView.swift */,
+				7E53FCFE2162672F00E10448 /* SRCShowFullSizeImageViewController.swift */,
 			);
 			path = SimpleRedditClient;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				7EE3F51C2160E55200AC04FF /* SRCRedditThumbnailRequestController.swift in Sources */,
 				7E53FCFD21617F7100E10448 /* SRCNotificationView.swift in Sources */,
 				7EF3ECCA215A9CD70076DDA8 /* SRCModelDataPresenter.swift in Sources */,
+				7E53FCFF2162672F00E10448 /* SRCShowFullSizeImageViewController.swift in Sources */,
 				7EE3F520216105B100AC04FF /* SRCArticleTableViewCell.swift in Sources */,
 				7EF3ECC8215A83C40076DDA8 /* SRCModelDataPresentable.swift in Sources */,
 				7EF3EC9A215A41680076DDA8 /* SRCRootViewController.swift in Sources */,

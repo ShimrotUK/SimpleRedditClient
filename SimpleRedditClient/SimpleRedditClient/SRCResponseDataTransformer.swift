@@ -36,7 +36,7 @@ fileprivate struct RedditTopListChild : Decodable
     var data : SRCRedditArticleEntity
 }
 
-struct SRCRedditArticleEntity : Decodable
+struct SRCRedditArticleEntity : Codable
 {
     var title : String
     var name : String
@@ -58,17 +58,17 @@ struct SRCRedditArticleEntity : Decodable
     }
 }
 
-struct SRCRedditArticlePreview : Decodable
+struct SRCRedditArticlePreview : Codable
 {
     var images : [SRCRedditArticlePreviewImages]
 }
 
-struct SRCRedditArticlePreviewImages : Decodable
+struct SRCRedditArticlePreviewImages : Codable
 {
     var source : SRCRedditArticlePreviewImageSource
 }
 
-struct SRCRedditArticlePreviewImageSource : Decodable
+struct SRCRedditArticlePreviewImageSource : Codable
 {
     var url : URL
 }
