@@ -37,6 +37,10 @@ class SRCDataProvider
         self.dataTranformer = dataTranformer
     }
 
+    deinit {
+       self.requestController.cancelCurrentActivities()
+    }
+
     func addObservingChanges(onChange closure: @escaping SRCObservingChangesClosure) -> UUID
     {
         let closureID = UUID()

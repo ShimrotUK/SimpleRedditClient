@@ -16,7 +16,29 @@ class SRCArticleTableViewCell: UITableViewCell
     @IBOutlet private(set) weak var authorLabel: UILabel!
     @IBOutlet private(set) weak var commentsCountLabel: UILabel!
     @IBOutlet private(set) weak var dateLabel: UILabel!
+
     var articleID: String? = nil
     var additionalImageURL: URL? = nil
-    
+    var delegate: SRCArticleTableViewCellDelegate? = nil
+
+    override func awakeFromNib() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.thumbnailTapped(_:)))
+
+        self.addGestureRecognizer(gestureRecognizer)
+    }
+
+    @IBAction func thumbnailTapped(_ gestureRecognizer: UITapGestureRecognizer)
+    {
+        if let theDelegate = self.delegate , let theAdditionalImageURL = self.additionalImageURL
+        {
+            theDelegate.receivedTap(onImageAt: theAdditionalImageURL)
+        }
+    }
+
+}
+
+protocol SRCArticleTableViewCellDelegate : NSObjectProtocol
+
+{
+    func receivedTap(onImageAt url: URL) -> Void
 }

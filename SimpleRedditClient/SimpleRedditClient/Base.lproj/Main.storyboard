@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KSe-wl-GEp">
-                                <rect key="frame" x="0.0" y="20" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <prototypes>
@@ -97,24 +97,69 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sn1-EU-UH5">
-                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="707" width="375" height="0.0"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to to go back to the beginning." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hno-ZW-Y8L">
+                                        <rect key="frame" x="10" y="9" width="355" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="t33-SV-2bx"/>
+                                    <constraint firstItem="hno-ZW-Y8L" firstAttribute="top" secondItem="Sn1-EU-UH5" secondAttribute="top" constant="9" id="1a0-Js-Jeo"/>
+                                    <constraint firstItem="hno-ZW-Y8L" firstAttribute="leading" secondItem="Sn1-EU-UH5" secondAttribute="leading" constant="10" id="DXI-Kh-g4T"/>
+                                    <constraint firstAttribute="bottom" secondItem="hno-ZW-Y8L" secondAttribute="bottom" priority="100" constant="10" id="bmU-hR-t4t"/>
+                                    <constraint firstAttribute="trailing" secondItem="hno-ZW-Y8L" secondAttribute="trailing" constant="10" id="kiy-9l-aec"/>
+                                    <constraint firstAttribute="height" priority="750" constant="40" id="t33-SV-2bx"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="cHC-QP-LZx" appends="YES" id="qvS-aY-Ckp"/>
+                                </connections>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6L7-d3-F8q" customClass="SRCNotificationView" customModule="SimpleRedditClient" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5k0-f5-x2P">
+                                        <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysC-tu-ux6">
+                                        <rect key="frame" x="40" y="9" width="325" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93062500000000004" green="0.93062500000000004" blue="0.93062500000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="E1t-Yz-z20"/>
+                                    <constraint firstItem="5k0-f5-x2P" firstAttribute="leading" secondItem="6L7-d3-F8q" secondAttribute="leading" constant="10" id="Iwj-hT-LDl"/>
+                                    <constraint firstAttribute="trailing" secondItem="ysC-tu-ux6" secondAttribute="trailing" constant="10" id="Kih-3T-kZ3"/>
+                                    <constraint firstItem="ysC-tu-ux6" firstAttribute="leading" secondItem="6L7-d3-F8q" secondAttribute="leading" priority="750" constant="10" id="Pbz-8V-5xP"/>
+                                    <constraint firstItem="5k0-f5-x2P" firstAttribute="top" secondItem="6L7-d3-F8q" secondAttribute="top" constant="10" id="VvD-Ln-ekN"/>
+                                    <constraint firstItem="ysC-tu-ux6" firstAttribute="leading" secondItem="5k0-f5-x2P" secondAttribute="trailing" constant="10" id="WZm-Mw-LDB"/>
+                                    <constraint firstItem="ysC-tu-ux6" firstAttribute="centerY" secondItem="6L7-d3-F8q" secondAttribute="centerY" id="d3X-qv-WpP"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="notificationProgress" destination="5k0-f5-x2P" id="T73-o9-zLv"/>
+                                    <outlet property="notificationProgressToTextConstraint" destination="WZm-Mw-LDB" id="rKW-S1-mDj"/>
+                                    <outlet property="notificationText" destination="ysC-tu-ux6" id="yOC-vt-YEp"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KSe-wl-GEp" secondAttribute="bottom" priority="750" id="3S2-0Q-U7p"/>
-                            <constraint firstItem="Sn1-EU-UH5" firstAttribute="top" secondItem="KSe-wl-GEp" secondAttribute="bottom" id="ApZ-Ej-Cgx"/>
+                            <constraint firstItem="Sn1-EU-UH5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KSe-wl-GEp" secondAttribute="bottom" priority="900" id="ApZ-Ej-Cgx"/>
                             <constraint firstItem="Sn1-EU-UH5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kft-kJ-vtC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Sn1-EU-UH5" secondAttribute="bottom" id="WwP-Rl-Ioi"/>
+                            <constraint firstItem="6L7-d3-F8q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="QEw-Kv-puo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6L7-d3-F8q" secondAttribute="trailing" id="Tlg-bY-PeI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Sn1-EU-UH5" secondAttribute="bottom" priority="900" id="WwP-Rl-Ioi"/>
+                            <constraint firstItem="6L7-d3-F8q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aBq-Xp-wsh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sn1-EU-UH5" secondAttribute="trailing" id="g1t-wK-Hlm"/>
+                            <constraint firstItem="Sn1-EU-UH5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="40" id="hfH-MV-BCn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KSe-wl-GEp" secondAttribute="trailing" id="jiE-Mh-XAQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="KSe-wl-GEp" secondAttribute="top" id="oso-hR-y2b"/>
                             <constraint firstItem="KSe-wl-GEp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pFB-sT-uxU"/>
@@ -123,8 +168,8 @@
                     </view>
                     <connections>
                         <outlet property="contentTableView" destination="KSe-wl-GEp" id="xHh-yU-fS2"/>
-                        <outlet property="newContentNotificationView" destination="Sn1-EU-UH5" id="b3j-gm-08t"/>
-                        <outlet property="showNotificationConstraint" destination="t33-SV-2bx" id="lwB-UO-Scd"/>
+                        <outlet property="progressNotificationView" destination="6L7-d3-F8q" id="KMk-J5-DFf"/>
+                        <outlet property="showNotificationConstraint" destination="hfH-MV-BCn" id="e4Q-gp-Bjg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

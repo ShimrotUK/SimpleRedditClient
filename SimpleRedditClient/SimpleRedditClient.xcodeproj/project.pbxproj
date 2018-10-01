@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E53FCFD21617F7100E10448 /* SRCNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E53FCFC21617F7100E10448 /* SRCNotificationView.swift */; };
 		7EE3F515215E802800AC04FF /* SRCResponseDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F514215E802800AC04FF /* SRCResponseDataTransformer.swift */; };
 		7EE3F517215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F516215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift */; };
 		7EE3F518215FE10A00AC04FF /* SRCResponseDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3F514215E802800AC04FF /* SRCResponseDataTransformer.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E53FCFC21617F7100E10448 /* SRCNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCNotificationView.swift; sourceTree = "<group>"; };
 		7EE3F514215E802800AC04FF /* SRCResponseDataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCResponseDataTransformer.swift; sourceTree = "<group>"; };
 		7EE3F516215FE0C500AC04FF /* SRCResponseDataTransformerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCResponseDataTransformerTest.swift; sourceTree = "<group>"; };
 		7EE3F519215FEFCC00AC04FF /* SRCRedditRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCRedditRequestController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				7EE3F51B2160E55200AC04FF /* SRCRedditThumbnailRequestController.swift */,
 				7EE3F51D216103D000AC04FF /* SRCContentTableViewDataSource.swift */,
 				7EE3F51F216105B100AC04FF /* SRCArticleTableViewCell.swift */,
+				7E53FCFC21617F7100E10448 /* SRCNotificationView.swift */,
 			);
 			path = SimpleRedditClient;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			files = (
 				7EE3F51A215FEFCC00AC04FF /* SRCRedditRequestController.swift in Sources */,
 				7EE3F51C2160E55200AC04FF /* SRCRedditThumbnailRequestController.swift in Sources */,
+				7E53FCFD21617F7100E10448 /* SRCNotificationView.swift in Sources */,
 				7EF3ECCA215A9CD70076DDA8 /* SRCModelDataPresenter.swift in Sources */,
 				7EE3F520216105B100AC04FF /* SRCArticleTableViewCell.swift in Sources */,
 				7EF3ECC8215A83C40076DDA8 /* SRCModelDataPresentable.swift in Sources */,

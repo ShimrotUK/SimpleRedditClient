@@ -12,10 +12,12 @@ class SRCContentTableViewDataSource: NSObject, UITableViewDataSource, UITableVie
 {
     private let cellIdentifier = "SRCArticleTableViewCell"
     private var dataPresenter : SRCModelDataPresentable
+    private weak var cellsDelegate : SRCArticleTableViewCellDelegate?
 
-    init(with dataPresenter:SRCModelDataPresentable)
+    init(with dataPresenter:SRCModelDataPresentable, cellsDelegate: SRCArticleTableViewCellDelegate)
     {
         self.dataPresenter = dataPresenter
+        self.cellsDelegate = cellsDelegate
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -35,6 +37,7 @@ class SRCContentTableViewDataSource: NSObject, UITableViewDataSource, UITableVie
         cell!.commentsCountLabel.text = articleEntity.numberOfComments
         cell!.thumbnailImageView.image = nil
         cell!.additionalImageURL = articleEntity.additionalImage
+        cell!.delegate = self.cellsDelegate
 
         articleEntity.thumbnailGetterClosure!({(image: UIImage?, ID:String)->Void in
             if ID == cell!.articleID
