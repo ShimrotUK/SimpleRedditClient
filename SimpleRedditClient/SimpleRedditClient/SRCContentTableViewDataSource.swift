@@ -39,16 +39,16 @@ class SRCContentTableViewDataSource: NSObject, UITableViewDataSource, UITableVie
         cell!.additionalImageURL = articleEntity.additionalImage
         cell!.delegate = self.cellsDelegate
 
-        articleEntity.thumbnailGetterClosure!({(image: UIImage?, ID:String)->Void in
-            if ID == cell!.articleID
+        articleEntity.thumbnailGetterClosure!({[weak cell] (image: UIImage?, ID:String)->Void in
+            if let theCell = cell, ID == theCell.articleID
             {
                 if let theImage = image
                 {
-                    cell!.thumbnailImageView.image = theImage
+                    theCell.thumbnailImageView.image = theImage
                 }
                 else
                 {
-                    cell!.thumbnailImageView.image = UIImage(named: "NoThumbnail")
+                    theCell.thumbnailImageView.image = UIImage(named: "NoThumbnail")
                 }
             }
         })

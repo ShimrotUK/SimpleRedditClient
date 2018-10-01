@@ -49,23 +49,26 @@ class SRCRootViewController: UIViewController, SRCArticleTableViewCellDelegate {
         self.tableViewDataSource = SRCContentTableViewDataSource(with: self.presenter, cellsDelegate: self)
         self.contentTableView.delegate = self.tableViewDataSource
         self.contentTableView.dataSource = self.tableViewDataSource
-        self.observingID = self.provider.addObservingChanges(onChange: { (provider: SRCDataProvider) in
-            switch provider.state
+        self.observingID = self.provider.addObservingChanges(onChange: { [weak self](provider: SRCDataProvider) in
+            if let theSelf = self
             {
-            case .failWithError:
-                let alertController = UIAlertController(title: "Error occured", message: provider.error?.localizedDescription, preferredStyle: .alert)
-                let alertAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) in
-                    self.dismiss(animated: true, completion: nil)
-                })
-                alertController.addAction(alertAction)
+                switch provider.state
+                {
+                case .failWithError:
+                    let alertController = UIAlertController(title: "Error occured", message: provider.error?.localizedDescription, preferredStyle: .alert)
+                    let alertAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) in
+                    })
+                    alertController.addAction(alertAction)
 
-                self.present(alertController, animated: true, completion: nil)
+                    theSelf.present(alertController, animated: true, completion: nil)
+                    theSelf.hideNotificationConstraint.isActive = false
 
-            case .ready:
-                self.presenter.update(with: provider.restorableData.articles)
-                self.contentTableView.reloadData()
-            default:
-                break
+                case .ready:
+                    theSelf.presenter.update(with: provider.restorableData.articles)
+                    theSelf.contentTableView.reloadData()
+                default:
+                    break
+                }
             }
         })
     }
@@ -77,7 +80,6 @@ class SRCRootViewController: UIViewController, SRCArticleTableViewCellDelegate {
             UserDefaults.standard.set(true, forKey: self.hasAlreadyLaunchedKey)
             let alertController = UIAlertController(title: "Tutorial", message: "Swipe left to move next page. \n Swipe right to move previous page. \n Tap to thumbnail for action. \n Have fun)", preferredStyle: .alert)
             let alertAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) in
-                self.dismiss(animated: true, completion: nil)
             })
             alertController.addAction(alertAction)
 
@@ -129,32 +131,44 @@ class SRCRootViewController: UIViewController, SRCArticleTableViewCellDelegate {
     func receivedTap(onImageAt url: URL)
     {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let alertActionOpen = UIAlertAction.init(title: "Open full size", style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) in
-                self.fullSizeURL = url
-                self.performSegue(withIdentifier: "SRCShowFullSizeImage", sender: self)
+        let alertActionOpen = UIAlertAction.init(title: "Open full size", style: UIAlertActionStyle.default, handler: {[weak self] (action:UIAlertAction) in
+                if let theSelf = self
+                {
+                    theSelf.fullSizeURL = url
+                    theSelf.performSegue(withIdentifier: "SRCShowFullSizeImage", sender: theSelf)
+                }
         })
         let alertActionOpenInSafary = UIAlertAction.init(title: "Open full size in safary", style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) in
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         })
-        let alertActionSave = UIAlertAction.init(title: "Save to foto", style: UIAlertActionStyle.destructive, handler: { (action:UIAlertAction) in
+        let alertActionSave = UIAlertAction.init(title: "Save to foto", style: UIAlertActionStyle.destructive, handler: {[weak self] (action:UIAlertAction) in
 
-            self.progressNotificationView.switchToCopying()
-            self.progressNotificationView.isHidden = false
-            let requestController = SRCRedditThumbnailRequestController()
-            requestController.sendThumbnailRequest(with: url, completion: { (image: UIImage?) in
-                if let theImage = image
-                {
-                    OperationQueue.main.addOperation {
-                        UIImageWriteToSavedPhotosAlbum(theImage, nil, nil, nil)
-                        self.progressNotificationView.switchToSuccess()
-                        let deadlineTime = DispatchTime.now() + .seconds(1)
-                        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
-                            self.progressNotificationView.isHidden = true
-                        })
-                    }
+            if let theSelf = self
+            {
+                theSelf.progressNotificationView.switchToCopying()
+                theSelf.progressNotificationView.isHidden = false
+                let requestController = SRCRedditThumbnailRequestController()
+                requestController.sendThumbnailRequest(with: url, completion: { (image: UIImage?) in
+                    if let theImage = image
+                    {
+                        OperationQueue.main.addOperation {
+                                if let theSelf = self
+                                {
+                                    UIImageWriteToSavedPhotosAlbum(theImage, nil, nil, nil)
+                                    theSelf.progressNotificationView.switchToSuccess()
+                                    let deadlineTime = DispatchTime.now() + .seconds(1)
+                                    DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+                                        if let theSelf = self
+                                        {
+                                            theSelf.progressNotificationView.isHidden = true
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    })
                 }
             })
-        })
         let alertActionCancel = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (action:UIAlertAction) in
         })
         alertController.addAction(alertActionOpen)

@@ -16,6 +16,7 @@ class SRCRedditRequestController
     let afterIDItemName = "after"
     let beforeIDItemName = "before"
     let httpMethod = "GET"
+    let timeOutInterval = 10.0
 
     var task : URLSessionDataTask? = nil
 
@@ -38,6 +39,7 @@ class SRCRedditRequestController
 
         let url = urlComponents.url
         var request = URLRequest(url: url!)
+        request.timeoutInterval = timeOutInterval
         request.httpMethod = httpMethod
         task = URLSession.shared.dataTask(with: request){
             (data: Data!, response: URLResponse!, error: Error!) -> Void in

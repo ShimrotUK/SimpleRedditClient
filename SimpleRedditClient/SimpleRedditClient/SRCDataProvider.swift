@@ -121,37 +121,39 @@ class SRCDataProvider
                 fallthrough
             case .ready, .decodingJSON, .failWithError:
                 self.state = .pendingRequest
-                self.requestController.sendRequest(with: count, beforeID: beforeID, afterID: afterID){
+                self.requestController.sendRequest(with: count, beforeID: beforeID, afterID: afterID){ [ weak self]
                     (dataResult: Data!, error: Error!) -> Void in
-
-                    if error != nil
+                    if let theSelf = self
                     {
-                        guard let theError = error as? URLError, theError.code != URLError.cancelled else
+                        if error != nil
                         {
-                            return
-                        }
+                            guard let theError = error as? URLError, theError.code != URLError.cancelled else
+                            {
+                                return
+                            }
 
-                        self.state = .failWithError
-                        self.error = error
-                    }
-                    else
-                    {
-                        self.state = .decodingJSON
-                        do {
-                            self.restorableData.articles = try self.dataTranformer.transform(JSONData: dataResult!)
-                            self.state = .ready
+                            theSelf.state = .failWithError
+                            theSelf.error = error
                         }
-                        catch
+                        else
                         {
-                            self.error = error
-                            self.state = .failWithError
+                            theSelf.state = .decodingJSON
+                            do {
+                                theSelf.restorableData.articles = try theSelf.dataTranformer.transform(JSONData: dataResult!)
+                                theSelf.state = .ready
+                            }
+                            catch
+                            {
+                                theSelf.error = error
+                                theSelf.state = .failWithError
+                            }
                         }
-                    }
 
-                    for closure in self.observingChangesClosures.values
-                    {
-                        OperationQueue.main.addOperation {
-                            closure(self)
+                        for closure in theSelf.observingChangesClosures.values
+                        {
+                            OperationQueue.main.addOperation {
+                                closure(theSelf)
+                            }
                         }
                     }
                 }

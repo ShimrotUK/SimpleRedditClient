@@ -35,12 +35,15 @@ class SRCModelDataPresenter
         {
             let numberOfComments = self.transform(commentsCount: articleEntity.commentsCount)
             let date = self.transform(timeInterval: currentTimeInterval, beforeInterval: articleEntity.created)
-            let thumbnailGetterClosure = articleEntity.thumbnail != nil ? {(_ imageDeliveryClosure: @escaping (_ image: UIImage?, _ articleEntityID: String) -> Void) -> Void in
-                self.thumbnailRequestController.sendThumbnailRequest(with: articleEntity.thumbnail!, completion: { (image:UIImage?) in
-                    OperationQueue.main.addOperation {
-                        imageDeliveryClosure(image, articleEntity.name)
+            let thumbnailGetterClosure = articleEntity.thumbnail != nil ? {[weak self] (_ imageDeliveryClosure: @escaping (_ image: UIImage?, _ articleEntityID: String) -> Void) -> Void in
+                    if let theSelf = self
+                    {
+                        theSelf.thumbnailRequestController.sendThumbnailRequest(with: articleEntity.thumbnail!, completion: { (image:UIImage?) in
+                            OperationQueue.main.addOperation {
+                                imageDeliveryClosure(image, articleEntity.name)
+                            }
+                        })
                     }
-                })
                 }
                 : nil
             let currentEntity = SRCArticlePresentationEntity(with:articleEntity.name, title: articleEntity.title, author: articleEntity.author, date: date,
